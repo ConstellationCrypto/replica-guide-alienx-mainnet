@@ -20,6 +20,6 @@ services:
       - --execution.forwarding-target=wss://alienx.calderachain.xyz/ws
       - --node.feed.input.url=wss://alienx.calderachain.xyz/feed
       - --node.data-availability.rest-aggregator.urls="https://alienx.calderachain.xyz/rest-aggregator"      
-      - --parent-chain.connection.url=https://ethereum-rpc.publicnode.com
-      - --parent-chain.blob-client.beacon-url=https://ethereum-beacon-api.publicnode.com
+      - --parent-chain.connection.url=[Insert your ETH RPC here]
+      - --parent-chain.blob-client.beacon-url=[Insert your beacon url here]
       
