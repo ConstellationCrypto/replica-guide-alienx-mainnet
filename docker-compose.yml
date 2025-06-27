@@ -1,0 +1,25 @@
+version: '3.4'
+
+volumes:
+  l2_data:
+
+services:
+  l2:
+    image: offchainlabs/nitro-node:v3.5.2-33d30c0
+    ports:
+      - "8545:8545"
+      - "8546:8546"
+    volumes:
+      - "${PWD}/nodeConfig.json:/config/nodeConfig.json"
+      - l2_data:/home/user/.arbitrum
+    entrypoint:
+      - "/usr/local/bin/nitro"
+      - --conf.file=/config/nodeConfig.json
+      - --node.staker.enable
+      - --node.staker.strategy=Watchtower
+      - --execution.forwarding-target=wss://alienx.calderachain.xyz/ws
+      - --node.feed.input.url=wss://alienx.calderachain.xyz/feed
+      - --node.data-availability.rest-aggregator.urls="https://alienx.calderachain.xyz/rest-aggregator"      
+      - --parent-chain.connection.url=https://ethereum-rpc.publicnode.com
+      - --parent-chain.blob-client.beacon-url=https://ethereum-beacon-api.publicnode.com
+      
